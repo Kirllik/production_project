@@ -1,8 +1,9 @@
-const path = require('path');  //стандартный модуль из среды Node.js
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
+import path from "path"; //стандартный модуль из среды Node.js
+import HtmlWebpackPlugin from "html-webpack-plugin"
+import webpack from "webpack";
 
-module.exports = {
+
+const config: webpack.Configuration = {
     mode: 'development',   //"production" минимизированный или 'development'
     entry: path.resolve   //метод для склейки путей
         (
@@ -37,3 +38,5 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 }
+
+export default config;

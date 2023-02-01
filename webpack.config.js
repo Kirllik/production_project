@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-    mode: 'development',   //"production" минимизированый или 'development'
+    mode: 'development',   //"production" минимизированный или 'development'
     entry: path.resolve   //метод для склейки путей
         (
             __dirname,   //папка в которой мы находимся

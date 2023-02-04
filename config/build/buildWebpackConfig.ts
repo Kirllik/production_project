@@ -22,7 +22,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         plugins: buildPlugins(options),
         //instance для TS
         module: {
-            rules: buildLoaders(),
+            rules: buildLoaders(options),
         },
         resolve: buildResolvers(),   //Свойство позволяющее не указывать перечисленные в extensions расширения
         devtool: isDev ? 'inline-source-map' : undefined, //Для отлавливания ошибок в сборке, с указанием модуля с ошибкой из сборки

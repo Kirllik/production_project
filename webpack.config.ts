@@ -10,7 +10,7 @@ export default (env: BuildEnv) => {
             (
                 __dirname,   //папка в которой мы находимся
                 'src',       //участки пути для склейки
-                'index.ts'   //участки пути для склейки
+                'index.tsx'   //участки пути для склейки
             ),
         build: path.resolve(__dirname, 'build'), //путь сохранения сборки
         html: path.resolve(__dirname, 'public', 'index.html')  // для встраивания root корневой ссылки в build/index.html

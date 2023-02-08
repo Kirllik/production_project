@@ -1,14 +1,17 @@
-import React, {Suspense} from 'react';
-import {Routes, Route} from 'react-router-dom';
-import {Counter} from "./component/Counter";
-import './component/index.scss'
+import React, {Suspense, useContext, useState} from 'react';
+import {Link, Route, Routes} from 'react-router-dom';
 import {AboutPageAsync} from "./pages/AboutPage/AboutPageAsync";
 import {MainPageAsync} from "./pages/MainPage/MainPageAsync";
-import {Link} from 'react-router-dom';
+import './styles/index.scss';
+import {useTheme} from "./theme/useTheme";
+
 
 const App = () => {
+
+const {theme, toggleTheme}=useTheme();  //кастомный хук смены темы
+
     return (
-        <div className="app">
+        <div className={`app ${theme}`}>
             <Link to={'/about'}>О нас</Link>
             <Link to={'/'}>Главная</Link>
             <Suspense fallback={<div>Загрузка...</div>}>  {/*//Lazy_Loading*/}
@@ -17,8 +20,9 @@ const App = () => {
                     <Route path={'/'} element={<MainPageAsync/>}/>
                 </Routes>
             </Suspense>
-            Counter
-            <Counter/>
+            <button onClick={toggleTheme}>{theme}</button>
+            {/*  Counter
+            <Counter/>*/}
         </div>
     );
 };

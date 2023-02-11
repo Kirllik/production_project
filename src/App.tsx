@@ -4,14 +4,16 @@ import {AboutPageAsync} from "./pages/AboutPage/AboutPageAsync";
 import {MainPageAsync} from "./pages/MainPage/MainPageAsync";
 import './styles/index.scss';
 import {useTheme} from "./theme/useTheme";
+import {ThemeFunction} from "./theme/ThemeFunction";
+import {classNames} from "./helpers/classNames/classNames";
 
 
 const App = () => {
 
-const {theme, toggleTheme}=useTheme();  //кастомный хук смены темы
+const {theme, toggleTheme}=useTheme();  //хук смены темы
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {hovered:true, selected:true},[theme, 'cls2', 'cls3'])}>
             <Link to={'/about'}>О нас</Link>
             <Link to={'/'}>Главная</Link>
             <Suspense fallback={<div>Загрузка...</div>}>  {/*//Lazy_Loading*/}

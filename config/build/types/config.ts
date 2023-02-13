@@ -5,6 +5,7 @@ export interface BuildPaths {   //типизация путей
     entry: string;
     build: string;
     html: string;
+    src: string; //Путь до папки с исходным кодом
 }
 
 export interface BuildEnv{   //переменные окружения

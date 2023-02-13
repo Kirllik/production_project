@@ -13,7 +13,9 @@ export default (env: BuildEnv) => {
                 'index.tsx'   //участки пути для склейки
             ),
         build: path.resolve(__dirname, 'build'), //путь сохранения сборки
-        html: path.resolve(__dirname, 'public', 'index.html')  // для встраивания root корневой ссылки в build/index.html
+        html: path.resolve(__dirname, 'public', 'index.html'),  // для встраивания root корневой ссылки в build/index.html
+        src: path.resolve(__dirname, 'src'), //Путь до папки с исходным кодом
+
     }
 //------------------------------------------------------------------------------------------------------
     const mode = env.mode || 'development';

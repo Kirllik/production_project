@@ -1,11 +1,10 @@
-import React, {Suspense, useContext, useState} from 'react';
+import React, {Suspense} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
-import {AboutPageAsync} from "./pages/AboutPage/AboutPageAsync";
-import {MainPageAsync} from "./pages/MainPage/MainPageAsync";
 import './styles/index.scss';
-import {useTheme} from "./theme/useTheme";
-import {ThemeFunction} from "./theme/ThemeFunction";
-import {classNames} from "./helpers/classNames/classNames";
+import {classNames} from "shared/lib/classNames/classNames";
+import {useTheme} from "app/providers/ThemeProvider";
+import {AboutPage} from "pages/AboutPage";
+import {MainPage} from "pages/MainPage";
 
 
 const App = () => {
@@ -18,13 +17,11 @@ const {theme, toggleTheme}=useTheme();  //хук смены темы
             <Link to={'/'}>Главная</Link>
             <Suspense fallback={<div>Загрузка...</div>}>  {/*//Lazy_Loading*/}
                 <Routes>
-                    <Route path={'/about'} element={<AboutPageAsync/>}/>
-                    <Route path={'/'} element={<MainPageAsync/>}/>
+                    <Route path={'/about'} element={<AboutPage/>}/>
+                    <Route path={'/'} element={<MainPage/>}/>
                 </Routes>
             </Suspense>
             <button onClick={toggleTheme}>{theme}</button>
-            {/*  Counter
-            <Counter/>*/}
         </div>
     );
 };

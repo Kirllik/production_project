@@ -24,7 +24,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         module: {
             rules: buildLoaders(options),
         },
-        resolve: buildResolvers(),   //Свойство позволяющее не указывать перечисленные в extensions расширения
+        resolve: buildResolvers(options),   //Свойство позволяющее не указывать перечисленные в extensions расширения
         devtool: isDev ? 'inline-source-map' : undefined, //Для отлавливания ошибок в сборке, с указанием модуля с ошибкой из сборки
         devServer: isDev ? buildDevServer(options) : undefined, //Функция ВэбПак-Дев_Сервер
     }

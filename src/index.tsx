@@ -1,8 +1,7 @@
-import {render} from "react-dom";
-import {Counter} from "./component/Counter";
-import App from "./App";
+import App from "./app/App";
+import {ThemeProvider} from "./app/providers/ThemeProvider";
 import {BrowserRouter} from "react-router-dom";
-import ThemeProvider from "./theme/ThemeProvider";
+import {render} from "react-dom";
 
 render(
     <BrowserRouter>

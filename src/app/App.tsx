@@ -1,26 +1,24 @@
-import React, {Suspense} from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './styles/index.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {useTheme} from "app/providers/ThemeProvider";
-import {AboutPage} from "pages/AboutPage";
-import {MainPage} from "pages/MainPage";
+import AppRouter from "app/providers/router/ui/AppRouter";
+import {AppRoutes, routeConfig, RoutePath} from "shared/config/routeConfig/routeConfig";
 
 
 const App = () => {
+    console.log("AppRoutes = ", AppRoutes)
+    console.log("RoutePath = ", RoutePath)
+    console.log("routeConfig ==", routeConfig)
+    console.log(Object.values(routeConfig));
 
-const {theme, toggleTheme}=useTheme();  //хук смены темы
+    const {theme, toggleTheme} = useTheme();  //хук смены темы
 
     return (
-        <div className={classNames('app', {hovered:true, selected:true},[theme, 'cls2', 'cls3'])}>
+        <div className={classNames('app', {hovered: true, selected: true}, [theme, 'cls2', 'cls3'])}>
             <Link to={'/about'}>О нас</Link>
             <Link to={'/'}>Главная</Link>
-            <Suspense fallback={<div>Загрузка...</div>}>  {/*//Lazy_Loading*/}
-                <Routes>
-                    <Route path={'/about'} element={<AboutPage/>}/>
-                    <Route path={'/'} element={<MainPage/>}/>
-                </Routes>
-            </Suspense>
+            <AppRouter/>
             <button onClick={toggleTheme}>{theme}</button>
         </div>
     );

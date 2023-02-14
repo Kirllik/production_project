@@ -6,7 +6,7 @@ import {render} from "react-dom";
 render(
     <BrowserRouter>
         <ThemeProvider>
-            <App/>    // компонент App это children для ThemeProvider:FC
+            <App/>    {/*компонент App это children для ThemeProvider:FC*/}
         </ThemeProvider>
     </BrowserRouter>,
     document.getElementById('root')

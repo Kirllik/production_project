@@ -1,9 +1,9 @@
-import {Link} from 'react-router-dom';
 import './styles/index.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {useTheme} from "app/providers/ThemeProvider";
-import AppRouter from "app/providers/router/ui/AppRouter";
+import {AppRouter} from "app/providers/router";
 import {AppRoutes, routeConfig, RoutePath} from "shared/config/routeConfig/routeConfig";
+import {Navbar} from "widgets/Navbar";
 
 
 const App = () => {
@@ -12,14 +12,13 @@ const App = () => {
     console.log("routeConfig ==", routeConfig)
     console.log(Object.values(routeConfig));
 
-    const {theme, toggleTheme} = useTheme();  //хук смены темы
+    const {theme} = useTheme();  //хук смены темы
 
     return (
         <div className={classNames('app', {hovered: true, selected: true}, [theme, 'cls2', 'cls3'])}>
-            <Link to={'/about'}>О нас</Link>
-            <Link to={'/'}>Главная</Link>
+            <Navbar/>
             <AppRouter/>
-            <button onClick={toggleTheme}>{theme}</button>
+
         </div>
     );
 };

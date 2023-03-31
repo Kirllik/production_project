@@ -4,6 +4,20 @@ import {BuildOptions} from "./types/config";
 
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {  // тип TS для лоудеров  RuleSetRule[]
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            }
+        ],
+    }
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -15,7 +29,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {  //
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName:isDev
+                        localIdentName: isDev
                             ? '[path][name]__[local]--[hash:base64:5]' //Путь до компонента, имя, локальность стиля, индивидуальный текст (для читабельности в консоли инстр.разраб. при дебагинге)
                             : '[hash:base64:5]'
                     },
@@ -34,7 +48,8 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {  //
 
     return [
         typescriptLoader,
-        cssLoader   //Лоадер для SCSS
-
+        cssLoader,   //Лоадер для SCSS
+        fileLoader,
+        svgLoader,
     ]
 }

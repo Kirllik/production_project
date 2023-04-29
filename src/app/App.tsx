@@ -4,6 +4,7 @@ import {useTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
 import {AppRoutes, routeConfig, RoutePath} from "shared/config/routeConfig/routeConfig";
 import {Navbar} from "widgets/Navbar";
+import {Sidebar} from "widgets/Sidebar";
 
 
 const App = () => {
@@ -17,7 +18,10 @@ const App = () => {
     return (
         <div className={classNames('app', {hovered: true, selected: true}, [theme, 'cls2', 'cls3'])}>
             <Navbar/>
-            <AppRouter/>
+            <div className="content-page">
+                <Sidebar/>
+                <AppRouter/>
+            </div>
 
         </div>
     );

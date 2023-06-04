@@ -6,24 +6,6 @@ import {AppRoutes, routeConfig, RoutePath} from "shared/config/routeConfig/route
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
 import {Suspense} from 'react';
-import {useTranslation} from 'react-i18next';
-import {Button, ThemeButton} from 'shared/ui/Button/Button';
-
-
-const Component = () => {
-    const {t, i18n} = useTranslation();
-
-    const toggle = () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    }
-
-    return (
-        <div>
-            <Button theme={ThemeButton.CLEAR} onClick={toggle}>{t('Перевод')}</Button>
-            {t('Тестовый пример')}
-        </div>
-    )
-}
 
 
 const App = () => {
@@ -38,7 +20,6 @@ const App = () => {
         <div className={classNames('app', {hovered: true, selected: true}, [theme, 'cls2', 'cls3'])}>
             <Suspense fallback="">
                 <Navbar/>
-                <Component/>
                 <div className="content-page">
                     <Sidebar/>
                     <AppRouter/>

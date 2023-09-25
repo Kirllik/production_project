@@ -15,5 +15,6 @@ export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstanc
         new webpack.DefinePlugin({ //Для проброса в приложение глобальных переменных
             __IS_DEV__:JSON.stringify(isDev)
         }),
+        new webpack.HotModuleReplacementPlugin(), //Плагин для применения изменений в коде, без перезагрузки страницы приложения
     ]
 }

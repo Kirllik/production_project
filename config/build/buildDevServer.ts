@@ -6,5 +6,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         port: options.port,  //port
         open: true,          //Автоматическое открытия окна в браузере при запуске сервера
         historyApiFallback: true,  //Для проксирования запросов через корневую страницу index.html, для SPA(одностраничников)
+        hot: true,  //Свойство - HotModuleReplacementPlugin
     }
 }

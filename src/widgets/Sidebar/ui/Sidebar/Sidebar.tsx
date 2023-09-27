@@ -1,29 +1,28 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from "./Sidebar.module.scss"
-import {useState} from "react";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
-import {populateReverseDependencyGraph} from "ts-loader/dist/utils";
-import {LangSwitcher} from "widgets/LangSwitsher/LangSwitcher";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useState } from 'react';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitsher/LangSwitcher';
+import { Button } from 'shared/ui/Button/Button';
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({className}: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false)
+export const Sidebar = ({ className }: SidebarProps) => {
+    const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
-        console.log(collapsed)
-        setCollapsed(prev => !prev)
-    }
+        console.log(collapsed);
+        setCollapsed((prev) => !prev);
+    };
     return (
-        <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
-            <button onClick={onToggle}>Menu</button>
+        <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            <Button onClick={onToggle}>Menu</Button>
             <div className={cls.switchers}>
-                <ThemeSwitcher/>
-                <LangSwitcher className={cls.lang}/>
+                <ThemeSwitcher />
+                <LangSwitcher className={cls.lang} />
             </div>
         </div>
     );
 };
-

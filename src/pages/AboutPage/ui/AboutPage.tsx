@@ -1,8 +1,7 @@
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
-    const {t} = useTranslation('about');
+    const { t } = useTranslation('about');
     return (
         <div>
             {t('О сайте')}
@@ -10,4 +9,4 @@ const AboutPage = () => {
     );
 };
 
-export default AboutPage; //Для Lazy-Loading экспорт должен осуществляться по default
+export default AboutPage; // Для Lazy-Loading экспорт должен осуществляться по default
